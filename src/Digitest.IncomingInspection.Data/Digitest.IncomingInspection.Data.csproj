@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Digitest.IncomingInspection.Data</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dapper" Version="2.1.35" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Digitest.IncomingInspection.Core\Digitest.IncomingInspection.Core.csproj" />
+  </ItemGroup>
+
+  <!--
+    database klasöründeki tablo ve başlangıç verisi scriptleri uygulamaya gömülür.
+    Uygulama ilk açılışta (Database:AutoCreate = true) bunları çalıştırarak veritabanını hazırlar.
+    Tek kaynak database klasörüdür; scriptleri orada düzenleyin.
+  -->
+  <ItemGroup>
+    <EmbeddedResource Include="..\..\database\02_CreateTables.sql" Link="Scripts\02_CreateTables.sql" LogicalName="Scripts.02_CreateTables.sql" />
+    <EmbeddedResource Include="..\..\database\03_SeedData.sql" Link="Scripts\03_SeedData.sql" LogicalName="Scripts.03_SeedData.sql" />
+  </ItemGroup>
+
+</Project>

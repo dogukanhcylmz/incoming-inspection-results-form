@@ -1,0 +1,69 @@
+## Visual Studio / .NET
+
+# Derleme çıktıları
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Ww][Ii][Nn]32/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
+artifacts/
+publish/
+*.pubxml.user
+
+# Visual Studio ayarları
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.suo
+*.rsuser
+*.userprefs
+
+# Rider / VS Code
+.idea/
+.vscode/
+*.sln.iml
+
+# NuGet
+*.nupkg
+*.snupkg
+**/[Pp]ackages/*
+!**/[Pp]ackages/build/
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+
+# Test sonuçları
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+*.trx
+*.coverage
+*.coveragexml
+coverage*.json
+coverage*.xml
+
+# Geçici dosyalar
+*.tmp
+*.cache
+*.log
+~$*
+*~
+Thumbs.db
+Desktop.ini
+.DS_Store
+
+# Kişisel bağlantı ayarları (bkz. README)
+**/appsettings.Local.json
+
+# Uygulamanın ürettiği PDF'ler
+*.pdf

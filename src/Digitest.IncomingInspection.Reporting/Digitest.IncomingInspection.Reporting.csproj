@@ -1,0 +1,26 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Digitest.IncomingInspection.Reporting</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!--
+      QuestPDF Community lisansı: yıllık brüt geliri 1 milyon USD altındaki şirketler için ücretsizdir.
+      Üzerindeyse Professional/Enterprise lisans gerekir: https://www.questpdf.com/license/
+    -->
+    <PackageReference Include="QuestPDF" Version="2024.12.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Digitest.IncomingInspection.Core\Digitest.IncomingInspection.Core.csproj" />
+  </ItemGroup>
+
+  <!-- Logo PDF'e gömülü kaynaktan basılır; dosya eksik olsa bile çıktı bozulmaz. -->
+  <ItemGroup>
+    <None Remove="Assets\logo_digitest.png" />
+    <EmbeddedResource Include="Assets\logo_digitest.png" LogicalName="Digitest.Logo.png" />
+  </ItemGroup>
+
+</Project>
