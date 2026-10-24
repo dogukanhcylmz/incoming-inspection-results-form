@@ -11,30 +11,22 @@ public sealed class InspectionFormService
 {
     private readonly IInspectionFormRepository _forms;
     private readonly IInspectionTemplateRepository _templates;
-    private readonly IDocumentInfoRepository _documentInfo;
 
     public InspectionFormService(
         IInspectionFormRepository forms,
-        IInspectionTemplateRepository templates,
-        IDocumentInfoRepository documentInfo)
+        IInspectionTemplateRepository templates)
     {
         _forms = forms ?? throw new ArgumentNullException(nameof(forms));
         _templates = templates ?? throw new ArgumentNullException(nameof(templates));
-        _documentInfo = documentInfo ?? throw new ArgumentNullException(nameof(documentInfo));
     }
 
     public async Task<InspectionForm> CreateNewAsync(CancellationToken cancellationToken = default)
     {
-        var info = await _documentInfo.GetAsync(cancellationToken).ConfigureAwait(false);
         var templates = await _templates.GetActiveAsync(cancellationToken).ConfigureAwait(false);
 
         var form = new InspectionForm
         {
-            InspectionDate = DateTime.Today,
-            DocumentNo = info.DocumentNo,
-            DocPublishDate = info.PublishDate,
-            DocRevision = info.Revision,
-            DocRevisionDate = info.RevisionDate
+            InspectionDate = DateTime.Today
         };
 
         for (var rowNo = 1; rowNo <= FormConstants.LineCount; rowNo++)

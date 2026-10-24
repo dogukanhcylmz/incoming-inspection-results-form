@@ -35,7 +35,6 @@
   <ItemGroup>
     <Compile Update="Forms\MainForm.cs" SubType="Form" />
     <Compile Update="Forms\InspectionEditForm.cs" SubType="Form" />
-    <Compile Update="Forms\DocumentInfoForm.cs" SubType="Form" />
   </ItemGroup>
 
 </Project>

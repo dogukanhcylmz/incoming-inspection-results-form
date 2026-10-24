@@ -46,8 +46,6 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             btnPdf = new ToolStripButton();
             sepActions = new ToolStripSeparator();
             btnDelete = new ToolStripButton();
-            sepSettings = new ToolStripSeparator();
-            btnDocumentInfo = new ToolStripButton();
             btnRefresh = new ToolStripButton();
             grpFilter = new GroupBox();
             tlpFilter = new TableLayoutPanel();
@@ -110,7 +108,7 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             lblAppSubtitle.Name = "lblAppSubtitle";
             lblAppSubtitle.Size = new Size(260, 15);
             lblAppSubtitle.TabIndex = 2;
-            lblAppSubtitle.Text = "Incoming Inspection and Results · FR-QC-009";
+            lblAppSubtitle.Text = "Incoming Inspection and Results";
             //
             // lblAppTitle
             //
@@ -135,7 +133,7 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             // toolStrip
             //
             toolStrip.GripStyle = ToolStripGripStyle.Hidden;
-            toolStrip.Items.AddRange(new ToolStripItem[] { btnNew, btnOpen, btnPdf, sepActions, btnDelete, sepSettings, btnDocumentInfo, btnRefresh });
+            toolStrip.Items.AddRange(new ToolStripItem[] { btnNew, btnOpen, btnPdf, sepActions, btnDelete, btnRefresh });
             toolStrip.Location = new Point(0, 64);
             toolStrip.Name = "toolStrip";
             toolStrip.Padding = new Padding(8, 2, 8, 2);
@@ -184,20 +182,6 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             btnDelete.Text = "Sil";
             btnDelete.ToolTipText = "Seçili kaydı sil (Delete)";
             btnDelete.Click += btnDelete_Click;
-            //
-            // sepSettings
-            //
-            sepSettings.Name = "sepSettings";
-            sepSettings.Size = new Size(6, 25);
-            //
-            // btnDocumentInfo
-            //
-            btnDocumentInfo.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            btnDocumentInfo.Name = "btnDocumentInfo";
-            btnDocumentInfo.Size = new Size(115, 22);
-            btnDocumentInfo.Text = "Doküman Bilgileri";
-            btnDocumentInfo.ToolTipText = "Doküman No, Yayın Tarihi ve Revizyon bilgileri";
-            btnDocumentInfo.Click += btnDocumentInfo_Click;
             //
             // btnRefresh
             //
@@ -611,8 +595,6 @@ namespace Digitest.IncomingInspection.WinForms.Forms
         private ToolStripButton btnPdf;
         private ToolStripSeparator sepActions;
         private ToolStripButton btnDelete;
-        private ToolStripSeparator sepSettings;
-        private ToolStripButton btnDocumentInfo;
         private ToolStripButton btnRefresh;
         private GroupBox grpFilter;
         private TableLayoutPanel tlpFilter;

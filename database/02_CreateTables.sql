@@ -14,29 +14,6 @@ END;
 GO
 
 /* ---------------------------------------------------------------------
-   Doküman bilgileri (form başlığının sağ üstündeki tablo)
-   Tek satırlık ayar tablosu. Yeni oluşturulan formlar bu bilgiyi
-   kopyalayarak saklar; böylece revizyon değişse de eski kayıtlar kendi
-   revizyonlarıyla basılır.
-   --------------------------------------------------------------------- */
-IF OBJECT_ID(N'dbo.FormDocumentInfo', N'U') IS NULL
-BEGIN
-    CREATE TABLE dbo.FormDocumentInfo
-    (
-        Id              TINYINT         NOT NULL
-            CONSTRAINT PK_FormDocumentInfo PRIMARY KEY
-            CONSTRAINT CK_FormDocumentInfo_SingleRow CHECK (Id = 1),
-        DocumentNo      NVARCHAR(30)    NOT NULL,
-        PublishDate     DATE            NOT NULL,
-        Revision        NVARCHAR(10)    NOT NULL,
-        RevisionDate    DATE            NULL,
-        UpdatedAt       DATETIME2(0)    NOT NULL
-            CONSTRAINT DF_FormDocumentInfo_UpdatedAt DEFAULT (SYSDATETIME())
-    );
-END;
-GO
-
-/* ---------------------------------------------------------------------
    Sabit muayene satırları şablonu (Görsel Muayene, Miktar, ...)
    Yeni form açıldığında satırlar buradan gelir.
    --------------------------------------------------------------------- */

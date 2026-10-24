@@ -16,7 +16,7 @@ Form ekrandan doldurulur, SQL Server'a kaydedilir, istenildiğinde dolu haliyle 
 - Doğrulamalar: zorunlu alanlar, Red kararında NCR zorunluluğu, geliş tarihi ≤ muayene tarihi, alan uzunlukları
 - Otomatik kayıt numarası: `GM-2026-0001`, `GM-2026-0002`, … (her yıl sıfırlanır)
 - **PDF çıktısı (QuestPDF):** A4 yatay, DIGITEST logolu, kağıt formun düzeninde; imza alanı ıslak imza için boş
-- Doküman bilgileri (Doküman No, Yayın Tarihi, Revizyon, Revizyon Tarihi) form ekranının sağ üst köşesinden **her forma özel** yazılabilir. Yeni formda **Doküman Bilgileri** ekranındaki varsayılan değerler hazır gelir. Her form kendi doküman bilgisini saklar ve PDF'e onunla basılır
+- Doküman bilgileri (Doküman No, Yayın Tarihi, Revizyon, Revizyon Tarihi) form ekranının sağ üst köşesinden **her forma özel** yazılır. Yeni formda bu alanlar boş gelir; Doküman No, Yayın Tarihi ve Revizyon zorunludur. Her form kendi doküman bilgisini saklar ve PDF'e onunla basılır
 - Daha önce girilen tedarikçi, envanter grubu, birim ve muayene eden adları açılır kutularda öneri olarak gelir
 - İlk açılışta veritabanı ve tablolar **otomatik oluşturulur**
 
@@ -72,7 +72,7 @@ Kendi kurulumunuza göre örnekler:
 
 1. `DigitestQC` veritabanını `Turkish_CI_AS` harmanlamasıyla oluşturur,
 2. Tabloları oluşturur (`database/02_CreateTables.sql`),
-3. Doküman bilgisini (FR-QC-009, 01.06.2026, Rev 00) ve sabit muayene satırlarını ekler (`database/03_SeedData.sql`).
+3. Sabit muayene satırlarını ekler (`database/03_SeedData.sql`).
 
 Scriptler tekrar çalıştırılabilir yazıldığı için her açılışta güvenle çalışır; var olan veriye dokunmaz.
 
@@ -121,7 +121,6 @@ DigitestGirdiMuayene.sln
    └─ Digitest.IncomingInspection.WinForms    Ekranlar, ayarlar, uygulama girişi
       ├─ Forms/MainForm                       Kayıt listesi ve arama
       ├─ Forms/InspectionEditForm             Form giriş ekranı
-      ├─ Forms/DocumentInfoForm               Doküman bilgileri
       └─ appsettings.json                     Bağlantı ve PDF ayarları
 ```
 
@@ -134,10 +133,9 @@ Formlar Visual Studio tasarımcısıyla (Designer) açılıp düzenlenebilir.
 
 | Tablo | İçerik |
 |---|---|
-| `InspectionForm` | Form başlığı: ürün/ticari bilgiler, NCR, notlar, muayene eden, genel sonuç, doküman bilgisi kopyası |
+| `InspectionForm` | Form başlığı: ürün/ticari bilgiler, NCR, notlar, muayene eden, genel sonuç, doküman bilgisi (Doküman No, Yayın Tarihi, Revizyon, Revizyon Tarihi) |
 | `InspectionItem` | Muayene satırları (`FormId` → `InspectionForm`, silmede CASCADE). `Decision`: 0 Seçilmedi, 1 Kabul, 2 Şartlı Kabul, 3 Red |
 | `InspectionTemplateItem` | Yeni formda hazır gelen sabit satırlar |
-| `FormDocumentInfo` | Doküman No / Yayın Tarihi / Revizyon / Revizyon Tarihi (tek satır) |
 | `FormNumberCounter` | Yıllık kayıt numarası sayacı |
 
 Alan uzunlukları `Core/Validation/FieldLimits.cs` ile veritabanında aynıdır; birini değiştirirseniz diğerini de değiştirin.
@@ -147,7 +145,6 @@ Alan uzunlukları `Core/Validation/FieldLimits.cs` ile veritabanında aynıdır;
 ## Özelleştirme
 
 - **Sabit satırları değiştirmek:** `InspectionTemplateItem` tablosundaki kayıtları güncelleyin (ör. kabul kriteri metni). Değişiklik yeni formlara yansır.
-- **Revizyon değiştiğinde:** Uygulamada **Doküman Bilgileri** ekranından güncelleyin.
 - **PDF düzeni:** `Reporting/InspectionFormPdfGenerator.cs`. Sütun genişlikleri kağıt formdan ölçülen oranlarla verilmiştir; renkler, yazı tipi ve satır yükseklikleri dosyanın başındaki sabitlerdedir.
 - **Logo:** `src/Digitest.IncomingInspection.Reporting/Assets/logo_digitest.png` dosyasını değiştirmeniz yeterli (PDF ve ekran aynı dosyayı kullanır).
 

@@ -13,14 +13,6 @@ BEGIN
 END;
 GO
 
--- Doküman bilgisi: FR-QC-009, Yayın 01.06.2026, Revizyon 00
-IF NOT EXISTS (SELECT 1 FROM dbo.FormDocumentInfo WHERE Id = 1)
-BEGIN
-    INSERT INTO dbo.FormDocumentInfo (Id, DocumentNo, PublishDate, Revision, RevisionDate)
-    VALUES (1, N'FR-QC-009', '2026-06-01', N'00', NULL);
-END;
-GO
-
 -- Sabit muayene satırları (7. satır serbest bırakılmıştır)
 INSERT INTO dbo.InspectionTemplateItem (RowNo, InspectionTypeTr, InspectionTypeEn, AcceptCriteria)
 SELECT v.RowNo, v.InspectionTypeTr, v.InspectionTypeEn, v.AcceptCriteria

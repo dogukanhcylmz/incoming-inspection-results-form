@@ -183,8 +183,16 @@ public partial class InspectionEditForm : Form
             cmbInspector.Text = form.InspectorName ?? string.Empty;
 
             txtDocumentNo.Text = form.DocumentNo;
-            dtpDocPublishDate.Value = ClampDate(dtpDocPublishDate,
-                form.DocPublishDate == default ? DateTime.Today : form.DocPublishDate);
+            if (form.DocPublishDate != default)
+            {
+                dtpDocPublishDate.Value = ClampDate(dtpDocPublishDate, form.DocPublishDate);
+                dtpDocPublishDate.Checked = true;
+            }
+            else
+            {
+                dtpDocPublishDate.Value = DateTime.Today;
+                dtpDocPublishDate.Checked = false;
+            }
             txtDocRevision.Text = form.DocRevision;
             if (form.DocRevisionDate is DateTime revisionDate)
             {
@@ -274,7 +282,7 @@ public partial class InspectionEditForm : Form
         form.InspectorName = cmbInspector.Text;
 
         form.DocumentNo = txtDocumentNo.Text;
-        form.DocPublishDate = dtpDocPublishDate.Value.Date;
+        form.DocPublishDate = dtpDocPublishDate.Checked ? dtpDocPublishDate.Value.Date : default;
         form.DocRevision = txtDocRevision.Text;
         form.DocRevisionDate = dtpDocRevisionDate.Checked ? dtpDocRevisionDate.Value.Date : null;
 
@@ -695,7 +703,8 @@ public partial class InspectionEditForm : Form
         toolTip.SetToolTip(dtpArrivalDate, "Geliş tarihi biliniyorsa kutucuğu işaretleyin.");
         toolTip.SetToolTip(cmbSupplier, "Daha önce girilen tedarikçiler önerilir; yeni bir ad da yazabilirsiniz.");
         toolTip.SetToolTip(txtNcr, "Herhangi bir satırda Red kararı varsa NCR açıklaması zorunludur.");
-        toolTip.SetToolTip(txtDocumentNo, "Yeni formda Doküman Bilgileri ekranındaki varsayılan değer gelir; bu forma özel değiştirebilirsiniz.");
+        toolTip.SetToolTip(txtDocumentNo, "Bu formun doküman numarası (ör. FR-QC-009).");
+        toolTip.SetToolTip(dtpDocPublishDate, "Kutucuğu işaretleyip yayın tarihini seçin.");
         toolTip.SetToolTip(dtpDocRevisionDate, "Revizyon tarihi varsa kutucuğu işaretleyin.");
         toolTip.SetToolTip(btnPrint, "Formu kaydeder ve kağıt formun aynısı olan PDF çıktısını oluşturur.");
     }

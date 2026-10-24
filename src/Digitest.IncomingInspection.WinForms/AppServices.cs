@@ -18,10 +18,9 @@ internal sealed class AppServices
         ConnectionDescription = connectionFactory.Description;
 
         Forms = new InspectionFormRepository(connectionFactory);
-        DocumentInfo = new DocumentInfoRepository(connectionFactory);
         var templates = new InspectionTemplateRepository(connectionFactory);
 
-        FormService = new InspectionFormService(Forms, templates, DocumentInfo);
+        FormService = new InspectionFormService(Forms, templates);
         DatabaseInitializer = new DatabaseInitializer(settings.ConnectionString);
         PdfExporter = new InspectionFormPdfExporter(new InspectionFormPdfGenerator(), settings.PdfOutputFolder);
     }
@@ -31,8 +30,6 @@ internal sealed class AppServices
     public string ConnectionDescription { get; }
 
     public IInspectionFormRepository Forms { get; }
-
-    public IDocumentInfoRepository DocumentInfo { get; }
 
     public InspectionFormService FormService { get; }
 

@@ -272,6 +272,8 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             // dtpDocPublishDate
             //
             dtpDocPublishDate.Anchor = AnchorStyles.Left;
+            dtpDocPublishDate.Checked = false;
+            dtpDocPublishDate.ShowCheckBox = true;
             dtpDocPublishDate.CustomFormat = "dd.MM.yyyy";
             dtpDocPublishDate.Format = DateTimePickerFormat.Custom;
             dtpDocPublishDate.Location = new Point(121, 30);

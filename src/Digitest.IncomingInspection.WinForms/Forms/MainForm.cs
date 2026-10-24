@@ -299,12 +299,6 @@ public partial class MainForm : Form
         await LoadListAsync();
     }
 
-    private void btnDocumentInfo_Click(object? sender, EventArgs e)
-    {
-        using var dialog = new DocumentInfoForm(_services);
-        dialog.ShowDialog(this);
-    }
-
     private async void dgvForms_CellDoubleClick(object? sender, DataGridViewCellEventArgs e)
     {
         if (e.RowIndex >= 0 && SelectedItem is { } item)
