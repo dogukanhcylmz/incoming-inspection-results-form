@@ -32,7 +32,6 @@ internal static class ResultColors
         _ => PendingFore
     };
 
-    /// <summary>Muayene satırı zemin rengi; karar seçilmemişse beyaz.</summary>
     public static Color Back(InspectionDecision decision) => decision switch
     {
         InspectionDecision.Accepted => AcceptedBack,

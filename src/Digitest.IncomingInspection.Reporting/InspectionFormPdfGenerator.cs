@@ -8,12 +8,7 @@ using QuestPDF.Infrastructure;
 
 namespace Digitest.IncomingInspection.Reporting;
 
-/// <summary>
-/// Girdi Muayene ve Sonuç Formunu (FR-QC-009) kağıt formun düzeninde, A4 yatay PDF olarak üretir.
-///
-/// Sütun genişlikleri kağıt formdan ölçülen oranlarla verilmiştir (RelativeColumn).
-/// Düzeni değiştirmek için ilgili Compose... metodunu düzenlemeniz yeterlidir.
-/// </summary>
+
 public sealed class InspectionFormPdfGenerator
 {
     private const string FontFamily = "Arial";
@@ -150,12 +145,12 @@ public sealed class InspectionFormPdfGenerator
         {
             table.ColumnsDefinition(columns =>
             {
-                columns.RelativeColumn(305);   // etiket 1
-                columns.RelativeColumn(297);   // değer 1
-                columns.RelativeColumn(293);   // etiket 2
-                columns.RelativeColumn(292);   // değer 2
-                columns.RelativeColumn(291);   // etiket 3 (ticari)
-                columns.RelativeColumn(357);   // değer 3 (ticari)
+                columns.RelativeColumn(305);   //  1
+                columns.RelativeColumn(297);   //  1
+                columns.RelativeColumn(293);   //  2
+                columns.RelativeColumn(292);   //  2
+                columns.RelativeColumn(291);   
+                columns.RelativeColumn(357);   
             });
 
             table.Cell().Row(1).Column(1).ColumnSpan(4)
@@ -166,7 +161,6 @@ public sealed class InspectionFormPdfGenerator
                 .Element(c => Box(c, BandColor, BandRowHeight))
                 .Element(c => CenteredText(c, "Ticari Bilgiler", 9, bold: true));
 
-            // Satır 2
             Label(table, 2, 1, "Proje Numarası", "Project Number");
             Value(table, 2, 2, f.ProjectNo);
             Label(table, 2, 3, "Envanter Kodu", "Inventory Code");
@@ -174,7 +168,6 @@ public sealed class InspectionFormPdfGenerator
             Label(table, 2, 5, "İrsaliye Numarası", "Waybill Number");
             Value(table, 2, 6, f.WaybillNo);
 
-            // Satır 3
             Label(table, 3, 1, "Ürün/Parça Adı", "Product/Part Name");
             Value(table, 3, 2, f.ProductName);
             Label(table, 3, 3, "Gelen Miktar", "Incoming Quantity");
@@ -182,7 +175,6 @@ public sealed class InspectionFormPdfGenerator
             Label(table, 3, 5, "Sipariş Emri Numarası", "PO Number");
             Value(table, 3, 6, f.PurchaseOrderNo);
 
-            // Satır 4
             Label(table, 4, 1, "Lot/Parti/Seri No", "Lot/Batch/Serial No");
             Value(table, 4, 2, f.LotNo);
             Label(table, 4, 3, "Teknik Resim No", "Technical Drawing No");
@@ -190,7 +182,6 @@ public sealed class InspectionFormPdfGenerator
             Label(table, 4, 5, "Geliş Tarihi", "Arrival Date");
             Value(table, 4, 6, f.ArrivalDate.HasValue ? FormatDate(f.ArrivalDate.Value) : null);
 
-            // Satır 5
             Label(table, 5, 1, "Muayene Tarihi", "Date of Inspection");
             Value(table, 5, 2, FormatDate(f.InspectionDate));
             Label(table, 5, 3, "Teknik Resim Rev", "Technical Drawing Rev");
@@ -198,7 +189,6 @@ public sealed class InspectionFormPdfGenerator
             Label(table, 5, 5, "Envanter Grubu", "Inventory Group");
             Value(table, 5, 6, f.InventoryGroup);
 
-            // Satır 6
             Label(table, 6, 1, "Diğer", "Other");
             Value(table, 6, 2, f.Other, columnSpan: 3);
             Label(table, 6, 5, "Tedarikçi Adı", "Supplier Name");
@@ -220,9 +210,8 @@ public sealed class InspectionFormPdfGenerator
             .Element(c => CenteredText(c, value, 8.5f));
     }
 
-    // =====================================================================
-    // 3) Muayene tablosu
-    // =====================================================================
+    //  Muayene tablosu
+   
     private static void ComposeInspectionItems(IContainer container, InspectionForm f)
     {
         var rows = Enumerable.Range(1, FormConstants.LineCount)
@@ -311,9 +300,6 @@ public sealed class InspectionFormPdfGenerator
             .Element(c => Bilingual(c, tr, en));
     }
 
-    // =====================================================================
-    // 4) NCR
-    // =====================================================================
     private static void ComposeNcr(IContainer container, InspectionForm f)
     {
         container
@@ -327,9 +313,6 @@ public sealed class InspectionFormPdfGenerator
             });
     }
 
-    // =====================================================================
-    // 5) Notlar | Adı Soyadı | İmza
-    // =====================================================================
     private static void ComposeNotesAndSignature(IContainer container, InspectionForm f)
     {
         container.Table(table =>
@@ -363,7 +346,7 @@ public sealed class InspectionFormPdfGenerator
                 .Element(c => Box(c, null, SignatureBodyHeight))
                 .Element(c => CenteredText(c, f.InspectorName, 9));
 
-            // İmza alanı ıslak imza için bilerek boş bırakılır.
+            // imza için
             table.Cell().Row(2).Column(3)
                 .Element(c => Box(c, null, SignatureBodyHeight));
         });

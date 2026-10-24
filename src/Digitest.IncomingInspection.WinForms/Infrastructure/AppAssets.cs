@@ -1,8 +1,6 @@
 namespace Digitest.IncomingInspection.WinForms.Infrastructure;
 
-/// <summary>
-/// Çıktı klasöründeki Assets dosyaları (logo, simge). Dosya yoksa null döner; uygulama yine çalışır.
-/// </summary>
+
 internal static class AppAssets
 {
     private static readonly Lazy<Image?> LogoImage = new(() => TryLoadImage(Path.Combine("Assets", "logo_digitest.png")));

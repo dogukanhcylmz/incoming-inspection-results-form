@@ -6,8 +6,7 @@ using Digitest.IncomingInspection.Reporting;
 
 namespace Digitest.IncomingInspection.WinForms;
 
-/// Uygulamanın bağımlılıklarını tek yerde kurar.
-/// Ekranlar ihtiyaç duydukları servislere bu nesne üzerinden ulaşır.
+/// Uygulamanın bağımlılıkları tek yerde
 internal sealed class AppServices
 {
     public AppServices(AppSettings settings)
