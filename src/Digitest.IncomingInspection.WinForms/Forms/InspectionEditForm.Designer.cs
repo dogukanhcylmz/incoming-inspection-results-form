@@ -754,7 +754,7 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             itemsHeaderStyle.WrapMode = DataGridViewTriState.True;
             dgvItems.ColumnHeadersDefaultCellStyle = itemsHeaderStyle;
             dgvItems.ColumnHeadersHeight = 36;
-            dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvItems.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvItems.Columns.AddRange(new DataGridViewColumn[] { colRowNo, colInspectionType, colAcceptCriteria, colApplied, colAccepted, colConditional, colRejected, colStatement });
             itemsDefaultStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             itemsDefaultStyle.BackColor = Color.White;

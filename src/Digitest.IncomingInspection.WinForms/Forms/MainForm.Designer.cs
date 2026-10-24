@@ -435,7 +435,7 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             headerCellStyle.WrapMode = DataGridViewTriState.True;
             dgvForms.ColumnHeadersDefaultCellStyle = headerCellStyle;
             dgvForms.ColumnHeadersHeight = 34;
-            dgvForms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvForms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvForms.Columns.AddRange(new DataGridViewColumn[] { colFormNo, colInspectionDate, colSupplier, colProduct, colLotNo, colPurchaseOrderNo, colQuantity, colResult, colInspector, colLastChanged });
             dgvForms.Dock = DockStyle.Fill;
             dgvForms.EnableHeadersVisualStyles = false;

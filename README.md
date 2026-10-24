@@ -4,8 +4,6 @@ Kağıt/Excel olarak kullanılan **Girdi Muayene ve Sonuç Formu**nun Windows ma
 Form ekrandan doldurulur, SQL Server'a kaydedilir, istenildiğinde dolu haliyle tekrar açılır ve
 **kağıt formun birebir aynısı** olarak PDF çıktısı alınır.
 
-![Örnek PDF çıktısı](docs/ornek-pdf-ciktisi.png)
-
 ---
 
 ## Özellikler
@@ -116,7 +114,6 @@ DigitestGirdiMuayene.sln
 │  ├─ 01_CreateDatabase.sql
 │  ├─ 02_CreateTables.sql
 │  └─ 03_SeedData.sql
-├─ docs/                                      README görselleri
 └─ src/
    ├─ Digitest.IncomingInspection.Core        Modeller, enum'lar, doğrulama, iş servisi (bağımlılık yok)
    ├─ Digitest.IncomingInspection.Data        Dapper + sade SQL ile repository'ler, veritabanı kurulumu
