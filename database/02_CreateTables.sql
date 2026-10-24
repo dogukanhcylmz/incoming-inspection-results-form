@@ -1,10 +1,4 @@
-﻿/* =====================================================================
-   DIGITEST - Girdi Muayene ve Sonuç Formu (FR-QC-009)
-   02 - Tablolar
-
-   Bu scripti DigitestQC veritabanı seçiliyken çalıştırın.
-   Script tekrar çalıştırılabilir (var olan tabloları bozmaz).
-   ===================================================================== */
+﻿/* Tablolar */
 
 IF DB_NAME() IN (N'master', N'model', N'msdb', N'tempdb')
 BEGIN
@@ -13,10 +7,10 @@ BEGIN
 END;
 GO
 
-/* ---------------------------------------------------------------------
-   Sabit muayene satırları şablonu (Görsel Muayene, Miktar, ...)
+/* 
+   Sabit muayene satırları şablonu (Görsel Muayene, Miktar, svs)
    Yeni form açıldığında satırlar buradan gelir.
-   --------------------------------------------------------------------- */
+   */
 IF OBJECT_ID(N'dbo.InspectionTemplateItem', N'U') IS NULL
 BEGIN
     CREATE TABLE dbo.InspectionTemplateItem
@@ -33,9 +27,7 @@ BEGIN
 END;
 GO
 
-/* ---------------------------------------------------------------------
-   Yıllık kayıt numarası sayacı (GM-2026-0001, GM-2026-0002, ...)
-   --------------------------------------------------------------------- */
+/* GM-2026-0001,vs */
 IF OBJECT_ID(N'dbo.FormNumberCounter', N'U') IS NULL
 BEGIN
     CREATE TABLE dbo.FormNumberCounter
@@ -46,9 +38,6 @@ BEGIN
 END;
 GO
 
-/* ---------------------------------------------------------------------
-   Form başlığı: Ürün Parça Bilgileri + Ticari Bilgiler + sonuç alanları
-   --------------------------------------------------------------------- */
 IF OBJECT_ID(N'dbo.InspectionForm', N'U') IS NULL
 BEGIN
     CREATE TABLE dbo.InspectionForm
@@ -83,7 +72,7 @@ BEGIN
         OverallResult           TINYINT         NOT NULL
             CONSTRAINT DF_InspectionForm_OverallResult DEFAULT (0),
 
-        -- Formun oluşturulduğu andaki doküman bilgisi (snapshot)
+        -- Formun oluşturulduğu andaki doküman bilgisi 
         DocumentNo              NVARCHAR(30)    NOT NULL,
         DocPublishDate          DATE            NOT NULL,
         DocRevision             NVARCHAR(10)    NOT NULL,
@@ -104,10 +93,7 @@ BEGIN
 END;
 GO
 
-/* ---------------------------------------------------------------------
-   Muayene satırları (formdaki 7 satırlık tablo)
-   Decision: 0 = Seçilmedi, 1 = Kabul, 2 = Şartlı Kabul, 3 = Red
-   --------------------------------------------------------------------- */
+
 IF OBJECT_ID(N'dbo.InspectionItem', N'U') IS NULL
 BEGIN
     CREATE TABLE dbo.InspectionItem

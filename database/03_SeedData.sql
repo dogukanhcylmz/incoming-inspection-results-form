@@ -1,10 +1,6 @@
-﻿/* =====================================================================
-   DIGITEST - Girdi Muayene ve Sonuç Formu (FR-QC-009)
-   03 - Başlangıç verileri
-
-   Bu scripti DigitestQC veritabanı seçiliyken çalıştırın.
-   Var olan kayıtların üzerine YAZMAZ; sadece eksikleri ekler.
-   ===================================================================== */
+﻿
+   /*Var olan kayıtların üzerine YAZMAZ; sadece eksikleri ekler.*/
+    
 
 IF DB_NAME() IN (N'master', N'model', N'msdb', N'tempdb')
 BEGIN
@@ -13,7 +9,7 @@ BEGIN
 END;
 GO
 
--- Sabit muayene satırları (7. satır serbest bırakılmıştır)
+-- Sabit muayene satırları
 INSERT INTO dbo.InspectionTemplateItem (RowNo, InspectionTypeTr, InspectionTypeEn, AcceptCriteria)
 SELECT v.RowNo, v.InspectionTypeTr, v.InspectionTypeEn, v.AcceptCriteria
 FROM (VALUES
