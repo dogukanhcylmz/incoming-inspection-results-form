@@ -5,6 +5,18 @@ Form ekrandan doldurulur, SQL Server'a kaydedilir, istenildiğinde dolu haliyle 
 
 ---
 
+## Ekran Görüntüleri
+
+**Kayıt listesi**
+
+![Kayıt listesi](docs/screenshots/kayit-listesi.png)
+
+**Form giriş ekranı**
+
+![Form giriş ekranı](docs/screenshots/form-giris.png)
+
+---
+
 ## Özellikler
 
 - Kayıt listesi: tarih aralığı, kayıt no, tedarikçi, ürün, lot no ve genel sonuca göre arama
