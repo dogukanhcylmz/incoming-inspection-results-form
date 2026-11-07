@@ -567,7 +567,7 @@ namespace Digitest.IncomingInspection.WinForms.Forms
             MinimumSize = new Size(1000, 600);
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "DIGITEST Girdi Muayene";
+            Text = "MDH Girdi Muayene";
             pnlHeader.ResumeLayout(false);
             pnlHeader.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)picLogo).EndInit();

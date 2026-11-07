@@ -57,7 +57,7 @@ public sealed class InspectionFormPdfExporter
         if (string.IsNullOrWhiteSpace(configured))
         {
             var documents = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            return Path.Combine(documents, "DIGITEST", "Girdi Muayene");
+            return Path.Combine(documents, "MDH", "Girdi Muayene");
         }
 
         return Path.GetFullPath(Environment.ExpandEnvironmentVariables(configured.Trim()));

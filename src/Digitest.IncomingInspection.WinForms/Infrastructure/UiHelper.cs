@@ -8,7 +8,7 @@ namespace Digitest.IncomingInspection.WinForms.Infrastructure;
 /// </summary>
 internal static class UiHelper
 {
-    public const string AppTitle = "DIGITEST Girdi Muayene";
+    public const string AppTitle = "MDH Girdi Muayene";
 
     public static void ShowError(IWin32Window? owner, Exception exception, string? context = null)
     {

@@ -80,8 +80,8 @@ public sealed class InspectionFormPdfGenerator
         {
             Title = $"{form.DocumentNo} Girdi Muayene ve Sonuç Formu - {form.FormNo}",
             Subject = "Girdi Muayene ve Sonuç Formu / Incoming Inspection and Results Form",
-            Author = "DIGITEST",
-            Creator = "DIGITEST Girdi Muayene"
+            Author = "MDH",
+            Creator = "MDH Girdi Muayene"
         });
 
         return document.GeneratePdf();
@@ -433,7 +433,7 @@ public sealed class InspectionFormPdfGenerator
 
     private static byte[]? LoadEmbeddedLogo()
     {
-        using var stream = typeof(InspectionFormPdfGenerator).Assembly.GetManifestResourceStream("Digitest.Logo.png");
+        using var stream = typeof(InspectionFormPdfGenerator).Assembly.GetManifestResourceStream("App.Logo.png");
         if (stream is null)
             return null;
 

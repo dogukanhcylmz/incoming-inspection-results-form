@@ -3,7 +3,7 @@ namespace Digitest.IncomingInspection.WinForms.Infrastructure;
 
 internal static class AppAssets
 {
-    private static readonly Lazy<Image?> LogoImage = new(() => TryLoadImage(Path.Combine("Assets", "logo_digitest.png")));
+    private static readonly Lazy<Image?> LogoImage = new(() => TryLoadImage(Path.Combine("Assets", "logo.png")));
     private static readonly Lazy<Icon?> IconFile = new(() => TryLoadIcon(Path.Combine("Assets", "app.ico")));
 
     public static Image? Logo => LogoImage.Value;

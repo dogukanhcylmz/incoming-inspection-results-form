@@ -19,8 +19,8 @@
 
   <!-- Logo PDF'e gömülü kaynaktan basılır; dosya eksik olsa bile çıktı bozulmaz. -->
   <ItemGroup>
-    <None Remove="Assets\logo_digitest.png" />
-    <EmbeddedResource Include="Assets\logo_digitest.png" LogicalName="Digitest.Logo.png" />
+    <None Remove="Assets\logo.png" />
+    <EmbeddedResource Include="Assets\logo.png" LogicalName="App.Logo.png" />
   </ItemGroup>
 
 </Project>

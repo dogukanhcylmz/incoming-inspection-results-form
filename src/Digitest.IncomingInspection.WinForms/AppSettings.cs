@@ -9,7 +9,7 @@ internal sealed class AppSettings
     /// açılışta veritabanı ve tablolar otomatik oluşturulur/güncellenr
     public bool AutoCreateDatabase { get; init; } = true;
 
-    /// <summary>PDF klasörü. %USERPROFILE% gibi ortam değişkenleri kullanılabilir. Boşsa Belgeler\DIGITEST\Girdi Muayene.</summary>
+    /// <summary>PDF klasörü. %USERPROFILE% gibi ortam değişkenleri kullanılabilir. Boşsa Belgeler\MDH\Girdi Muayene.</summary>
     public string? PdfOutputFolder { get; init; }
 
     /// <summary>true ise oluşturulan PDF varsayılan görüntüleyicide açılır.</summary>

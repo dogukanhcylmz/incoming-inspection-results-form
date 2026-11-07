@@ -4,9 +4,9 @@
     <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <Company>DIGITEST</Company>
-    <Product>DIGITEST Girdi Muayene</Product>
-    <Copyright>© 2026 DIGITEST</Copyright>
+    <Company>MDH</Company>
+    <Product>MDH Girdi Muayene</Product>
+    <Copyright>© 2026 MDH</Copyright>
     <Version>1.0.0</Version>
     <NeutralLanguage>tr-TR</NeutralLanguage>
   </PropertyGroup>

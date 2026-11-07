@@ -1,3 +1,5 @@
+<img src="src/Digitest.IncomingInspection.Reporting/Assets/logo.svg" alt="MDH" width="260">
+
 # Girdi Muayene ve Sonuç Formu
 
 Windows masaüstü uygulaması
@@ -78,7 +80,7 @@ Scriptler tekrar çalıştırılabilir yazıldığı için her açılışta güv
 ## Kullanımı
 - Yeni form,  Kaydı açma, Kaydetmek, PDF almak, kKayıt silmek, Listeyi yenilemek
 
-- PDF'ler varsayılan olarak   Belgeler\DIGITEST\Girdi Muayene   klasörüne kaydedilr ve otomatik açılır.
+- PDF'ler varsayılan olarak   Belgeler\MDH\Girdi Muayene   klasörüne kaydedilr ve otomatik açılır.
 
 ---
 

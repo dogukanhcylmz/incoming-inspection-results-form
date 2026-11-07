@@ -29,7 +29,7 @@
     <None Update="appsettings.Local.json" CopyToOutputDirectory="PreserveNewest" />
     <None Update="Assets\app.ico" CopyToOutputDirectory="PreserveNewest" />
     <!-- Logo tek yerde durur (Reporting/Assets); ekran başlığı için çıktı klasörüne kopyalanır. -->
-    <None Include="..\Digitest.IncomingInspection.Reporting\Assets\logo_digitest.png" Link="Assets\logo_digitest.png" CopyToOutputDirectory="PreserveNewest" />
+    <None Include="..\Digitest.IncomingInspection.Reporting\Assets\logo.png" Link="Assets\logo.png" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 
   <ItemGroup>
